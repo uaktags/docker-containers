@@ -1,6 +1,6 @@
 ### Dockerfile for splunk
 FROM phusion/baseimage:0.9.16
-MAINTAINER dmaxwell351 <dmaxwell351@sent.com>
+MAINTAINER uaktags <tim@aioxperts.com>
 
 ENV HOME /root
 ENV SPLUNK_HOME=/opt/splunk
@@ -23,9 +23,9 @@ RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 RUN apt-get update -q && \
 	apt-get install -y wget
 	
-RUN wget -O splunk-6.5.3-36937ad027d4-linux-2.6-amd64.deb "https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.5.3&product=splunk&filename=splunk-6.5.3-36937ad027d4-linux-2.6-amd64.deb&wget=true"
+RUN wget -O splunk-7.2.4.2-fb30470262e3-linux-2.6-amd64.deb 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=7.2.4.2&product=splunk&filename=splunk-7.2.4.2-fb30470262e3-linux-2.6-amd64.deb&wget=true'
 
-RUN dpkg -i /splunk-6.5.3-36937ad027d4-linux-2.6-amd64.deb
+RUN dpkg -i /splunk-7.2.4.2-fb30470262e3-linux-2.6-amd64.deb
 
 ### Configure Service Startup
 COPY rc.local /etc/rc.local
